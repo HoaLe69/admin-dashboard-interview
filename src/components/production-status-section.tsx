@@ -56,12 +56,66 @@ function ProductionStatusChart({ data }: ProductionStatusChartProps) {
   }, [data])
 
   const isEmpty = totalProductInAllStatus === 0
-
   return (
     <div className="flex flex-col items-center mt-20">
       <div className="h-[286px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart key={isEmpty ? "empty" : "filled"}>
+            {/* Define shadow filters */}
+            <defs>
+              {/* Filter for segment 1: top inner shadow (0px -7.15px) */}
+              <filter id="innerShadow-0" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+                <feOffset dx="0" dy="-7.15" result="offsetBlur" />
+                <feComposite
+                  in="offsetBlur"
+                  in2="SourceAlpha"
+                  operator="arithmetic"
+                  k2="-1"
+                  k3="1"
+                  result="innerShadow"
+                />
+                <feFlood floodColor="#FFFFFF" floodOpacity="0.25" result="color" />
+                <feComposite in="color" in2="innerShadow" operator="in" result="shadow" />
+                <feComposite in="shadow" in2="SourceGraphic" operator="over" />
+              </filter>
+
+              {/* Filter for segment 2: top-left inner shadow (-3.57px -3.57px) */}
+              <filter id="innerShadow-1" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+                <feOffset dx="-3.57" dy="-3.57" result="offsetBlur" />
+                <feComposite
+                  in="offsetBlur"
+                  in2="SourceAlpha"
+                  operator="arithmetic"
+                  k2="-1"
+                  k3="1"
+                  result="innerShadow"
+                />
+                <feFlood floodColor="#FFFFFF" floodOpacity="0.25" result="color" />
+                <feComposite in="color" in2="innerShadow" operator="in" result="shadow" />
+                <feComposite in="shadow" in2="SourceGraphic" operator="over" />
+              </filter>
+
+              {/* Filter for segment 3: bottom inner shadow (0px 7.15px) */}
+              <filter id="innerShadow-2" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+                <feOffset dx="0" dy="7.15" result="offsetBlur" />
+                <feComposite
+                  in="offsetBlur"
+                  in2="SourceAlpha"
+                  operator="arithmetic"
+                  k2="-1"
+                  k3="1"
+                  result="innerShadow"
+                />
+                <feFlood floodColor="#FFFFFF" floodOpacity="0.25" result="color" />
+                <feComposite in="color" in2="innerShadow" operator="in" result="shadow" />
+                <feComposite in="shadow" in2="SourceGraphic" operator="over" />
+              </filter>
+            </defs>
+
+            {/* Render donut segments */}
             <Pie
               data={isEmpty ? mockProductionStatusesNoData : data}
               cx="50%"
@@ -69,7 +123,7 @@ function ProductionStatusChart({ data }: ProductionStatusChartProps) {
               innerRadius={90}
               outerRadius={120}
               cornerRadius={10}
-              paddingAngle={8}
+              paddingAngle={2}
               dataKey="value"
               label={
                 isEmpty
@@ -114,17 +168,10 @@ function ProductionStatusChart({ data }: ProductionStatusChartProps) {
               }
             >
               {(isEmpty ? mockProductionStatusesNoData : data).map((entry, index) => {
-                const shadow: Record<number, string> = {
-                  0: `drop-shadow(0 5.57px 0 ${isEmpty ? EMPTY_COLORS_PIE_CHART[index] : COLORS_PIE_CHART[index]})`,
-                  1: `drop-shadow(3.57px 3.57px 0 ${isEmpty ? EMPTY_COLORS_PIE_CHART[index] : COLORS_PIE_CHART[index]})`,
-                  2: `drop-shadow(0 -5.57px 0 ${isEmpty ? EMPTY_COLORS_PIE_CHART[index] : COLORS_PIE_CHART[index]})`,
-                }
                 return (
                   <Cell
-                    style={{
-                      filter: shadow[index],
-                    }}
                     key={`cell-${index}`}
+                    filter={`url(#innerShadow-${index})`}
                     fill={
                       isEmpty
                         ? EMPTY_COLORS_PIE_CHART[index % EMPTY_COLORS_PIE_CHART.length]

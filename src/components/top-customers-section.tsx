@@ -63,10 +63,17 @@ function TopCustomerChart({ data }: TopCustomerChartProps) {
   return (
     <div className="h-[336px] w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} layout="vertical">
+        <BarChart data={data} margin={{ top: 30, bottom: 20 }} layout="vertical">
           <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={true} />
           <XAxis
             type="number"
+            label={{
+              value: "Số lượng",
+              angle: 0,
+              position: "left",
+              offset: 30, // Adjust spacing
+              style: { textAnchor: "left", fontSize: 12 },
+            }}
             fontSize={12}
             tickLine={false}
             axisLine={false}
@@ -76,6 +83,14 @@ function TopCustomerChart({ data }: TopCustomerChartProps) {
           />
           <YAxis
             style={{ lineHeight: "1.2" }}
+            tickMargin={20}
+            label={{
+              value: "Khách hàng",
+              angle: 0,
+              position: "top",
+              offset: 20, // Adjust spacing
+              style: { textAnchor: "left", fontSize: 12 },
+            }}
             type="category"
             dataKey="name"
             fontSize={12}

@@ -69,7 +69,7 @@ export default function MaterialsNeededTable() {
           )}
         </Table>
         {!materials.length && (
-          <div className="flex flex-col justify-center items-center  py-6">
+          <div className="flex flex-col justify-center items-center  py-6 h-[450px]">
             <Image src="/images/ic-content.png" width={250} height={250} alt="empty state" />
             <p className="text-neutral-04 text-2xl font-medium leading-10">Chưa có dữ liệu</p>
           </div>

@@ -75,7 +75,7 @@ function ProductionPlanChart({ data }: ProductionPlanChartProp) {
   return (
     <div className="h-[336px] w-full mt-4">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data}>
+        <BarChart margin={{ top: 30, left: 20 }} data={data}>
           <Legend
             wrapperStyle={{
               top: "-20px",
@@ -100,10 +100,31 @@ function ProductionPlanChart({ data }: ProductionPlanChartProp) {
             ]}
           />
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis height={50} dataKey="name" fontSize={12} tickLine={false} axisLine={false} />
+          <XAxis
+            label={{
+              value: "Mặt hàng",
+              angle: 0,
+              position: "left",
+              offset: 50, // Adjust spacing
+              style: { textAnchor: "middle", fontSize: 12 },
+            }}
+            tickMargin={15}
+            height={50}
+            dataKey="name"
+            fontSize={12}
+            tickLine={false}
+            axisLine={false}
+          />
           <YAxis
             allowDataOverflow
-            // label={{ value: "Cái" }}
+            tickMargin={12}
+            label={{
+              value: "Cái",
+              angle: 0,
+              position: "top",
+              offset: 20, // Adjust spacing
+              style: { textAnchor: "middle", fontSize: 12 },
+            }}
             fontSize={12}
             ticks={ticksOfChart}
             tickLine={false}
