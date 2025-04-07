@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is an interview challenge. In this challenge, I have to build an admin dashboad page by NextJS, Tailwindcss in 48hours. 
 
-## Getting Started
+## Outline and named component
+![image](https://github.com/user-attachments/assets/2c3e01a5-3556-406d-82c4-9358b29e0e77)
 
-First, run the development server:
+## Some UIs preview
+_desktop_
+![image](https://github.com/user-attachments/assets/1b0cd155-e115-4274-81a0-965e80c9f444)
+_mobile_
+![image](https://github.com/user-attachments/assets/265bd8d4-0b73-4cd0-8691-adcd6c87e059)
+_UI without data_
+![image](https://github.com/user-attachments/assets/3cf9b664-95ce-4401-80de-8bb46720d799)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+$PROJECT_ROOT
+│   # Page files
+├── pages
+│   # React component files
+├── components
+│   # Non-react modules
+├── lib
+│   # Static files for image , logo , video backgroud
+└── public
+│   # styling for component
+└── styles
+```
