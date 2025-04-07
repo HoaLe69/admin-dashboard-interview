@@ -7,11 +7,11 @@ This is an interview challenge. In this challenge, I have to build an admin dash
 ## Some UIs preview
 
 _desktop_
-![image](https://github.com/user-attachments/assets/1b0cd155-e115-4274-81a0-965e80c9f444)
+![image](https://github.com/user-attachments/assets/01823bdb-b85e-4092-859e-dbe4adffb86c)
 _mobile_
-![image](https://github.com/user-attachments/assets/265bd8d4-0b73-4cd0-8691-adcd6c87e059)
+![image](https://github.com/user-attachments/assets/f34d618d-50fa-438f-bbb8-3697a5c8ca39)
 _UI without data_
-![image](https://github.com/user-attachments/assets/3cf9b664-95ce-4401-80de-8bb46720d799)
+![image](https://github.com/user-attachments/assets/1413541f-4e69-44f7-af2e-ad68c9a1cfe8)
 
 ## Project Structure
 
